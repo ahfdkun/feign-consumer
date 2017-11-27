@@ -31,7 +31,11 @@
 		<dependency>
 			<groupId>org.springframework.cloud</groupId>
 			<artifactId>spring-cloud-starter-feign</artifactId>
-			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>com.ahfdkun</groupId>
+			<artifactId>hello-service-api</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
 		</dependency>
 	</dependencies>
 
