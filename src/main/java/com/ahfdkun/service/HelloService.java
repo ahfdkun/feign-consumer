@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import com.ahfdkun.domain.User2;
 
 // 服务名
-@FeignClient("HELLO-SERVICE")
+@FeignClient(name = "HELLO-SERVICE", fallback = HelloServiceFallback.class)
 public interface HelloService {
 
 	@RequestMapping("/hello")

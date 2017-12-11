@@ -14,6 +14,7 @@ public class ConsumerController {
 
 	@Autowired
 	private HelloService helloService;
+	
 	@Autowired
 	private RefactorHelloService refactorHelloService;
 
@@ -36,9 +37,9 @@ public class ConsumerController {
 	@RequestMapping(value = "/feign-consumer3", method = RequestMethod.GET)
 	public String helloConsumer3() {
 		StringBuilder sb = new StringBuilder();
-		sb.append(refactorHelloService.hello("DIDI1")).append("\n");
-		sb.append(refactorHelloService.hello("DIDI2", 30)).append("\n");
-		sb.append(refactorHelloService.hello(new com.ahfdkun.api.dto.User2("DIDI3", 40))).append("\n");
+		sb.append(refactorHelloService.hello4("DIDI1")).append("\n");
+		sb.append(refactorHelloService.hello5("DIDI2", 30)).append("\n");
+		sb.append(refactorHelloService.hello6(new com.ahfdkun.api.dto.User2("DIDI3", 40))).append("\n");
 		System.out.println(sb);
 		return sb.toString();
 	}
