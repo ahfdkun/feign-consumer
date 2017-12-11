@@ -7,10 +7,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.ahfdkun.config.FullLogConfiguration;
 import com.ahfdkun.domain.User2;
 
 // 服务名
-@FeignClient(name = "HELLO-SERVICE", fallback = HelloServiceFallback.class)
+@FeignClient(name = "HELLO-SERVICE", fallback = HelloServiceFallback.class, configuration = FullLogConfiguration.class)
 public interface HelloService {
 
 	@RequestMapping("/hello")
