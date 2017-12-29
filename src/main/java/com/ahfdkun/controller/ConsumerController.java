@@ -1,8 +1,15 @@
 package com.ahfdkun.controller;
 
+import java.util.Arrays;
+import java.util.Collections;
+
+import javax.servlet.http.Cookie;
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.ahfdkun.domain.User2;
@@ -14,15 +21,20 @@ public class ConsumerController {
 
 	@Autowired
 	private HelloService helloService;
-	
+
 	@Autowired
 	private RefactorHelloService refactorHelloService;
 
 	@RequestMapping(value = "/feign-consumer", method = RequestMethod.GET)
-	public String helloConsumer() {
+	public String helloConsumer(HttpServletRequest request) {
+		if (request.getCookies() != null) {
+			for(Cookie cookie : request.getCookies()) {
+				System.out.println(cookie.getName() + ": " + cookie.getValue());
+			}
+		}
 		return helloService.hello();
 	}
-	
+
 	@RequestMapping(value = "/feign-consumer2", method = RequestMethod.GET)
 	public String helloConsumer2() {
 		StringBuilder sb = new StringBuilder();
@@ -33,7 +45,7 @@ public class ConsumerController {
 		System.out.println(sb);
 		return sb.toString();
 	}
-	
+
 	@RequestMapping(value = "/feign-consumer3", method = RequestMethod.GET)
 	public String helloConsumer3() {
 		StringBuilder sb = new StringBuilder();
