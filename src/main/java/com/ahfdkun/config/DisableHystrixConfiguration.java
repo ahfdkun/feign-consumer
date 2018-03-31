@@ -10,10 +10,10 @@ import feign.Feign;
 // @Configuration
 public class DisableHystrixConfiguration {
 
-	@Bean
+	/*@Bean
 	@Scope("prototype")
 	public Feign.Builder feignBuilder() {
 		return new Feign.Builder();
-	}
+	}*/
 	
 }
